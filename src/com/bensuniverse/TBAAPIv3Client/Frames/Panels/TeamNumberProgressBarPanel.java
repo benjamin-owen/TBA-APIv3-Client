@@ -49,7 +49,7 @@ public class TeamNumberProgressBarPanel extends JPanel {
         
         bold_team = new JTextField(16);
 
-        TitledBorder border = new TitledBorder("Team Number (bold in Excel file)");
+        TitledBorder border = new TitledBorder("Team number (bold in Excel file)");
         
         bold_team.setBorder(border);
         
