@@ -38,8 +38,6 @@ public class FileSelectPanel extends JPanel {
 
     public FileSelectPanel() {
 
-        super(true);
-
         this.setLayout(new GridLayout(1, 2, 5, 5)); // grid layout 1 row x 2 columns
 
         file_location_input = new JTextField(20);

@@ -26,8 +26,6 @@ public class OutputLogPanel extends JPanel {
 
     public OutputLogPanel() {
 
-        super(true);
-
         this.setLayout(new GridLayout(1, 1, 5, 5)); // grid layout 1 row x 1 column
 
         output_log = new JTextArea(6, 40);

@@ -38,8 +38,6 @@ public class FileSelectPanelRIGHT extends JPanel {
 
 	public FileSelectPanelRIGHT() {
 
-		super(true);
-
 		this.setLayout(new GridLayout(1, 2, 5, 5)); // grid layout 1 row x 2 columns
 
 		file_select.setSelectedItem(Configuration.readValue("file_type").equals("NV") ? FileType.XLSX

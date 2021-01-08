@@ -8,6 +8,8 @@
 
 package com.bensuniverse.TBAAPIv3Client.Frames.Panels;
 
+import com.bensuniverse.TBAAPIv3Client.Main;
+
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -20,12 +22,13 @@ public class FooterPanel extends JPanel {
 
     public FooterPanel() {
 
-        super(true);
-
-        JLabel main_label = new JLabel("Version 2.0 | Ben Owen | 2020-08-16", SwingConstants.CENTER);
+        // pull information from Main.java
+        JLabel main_label = new JLabel("Version " + Main.getVersion() + " | " +
+                Main.getAuthor() + " | " + Main.getDate());
 
         this.add(main_label);
-        
+
+        // padding to look good
         this.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
         
         try {

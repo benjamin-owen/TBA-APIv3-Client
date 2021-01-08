@@ -8,10 +8,7 @@
 
 package com.bensuniverse.TBAAPIv3Client.Frames;
 
-import javax.swing.BoxLayout;
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.UIManager;
+import javax.swing.*;
 
 import com.bensuniverse.TBAAPIv3Client.Frames.Panels.APIKeyDataTypePanel;
 import com.bensuniverse.TBAAPIv3Client.Frames.Panels.FileSelectPanel;
@@ -20,6 +17,8 @@ import com.bensuniverse.TBAAPIv3Client.Frames.Panels.HeaderPanel;
 import com.bensuniverse.TBAAPIv3Client.Frames.Panels.MatchIDPanel;
 import com.bensuniverse.TBAAPIv3Client.Frames.Panels.OutputLogPanel;
 import com.bensuniverse.TBAAPIv3Client.Frames.Panels.TeamNumberProgressBarPanel;
+
+import java.awt.*;
 
 public class MainWindow extends JFrame {
 
@@ -33,13 +32,13 @@ public class MainWindow extends JFrame {
         this.setResizable(false);
         
         // add panels
-        this.add(new HeaderPanel());
-        this.add(new APIKeyDataTypePanel());
-        this.add(new FileSelectPanel());
-        this.add(new MatchIDPanel());
-        this.add(new TeamNumberProgressBarPanel());
-        this.add(new OutputLogPanel());
-        this.add(new FooterPanel());
+        this.add(new HeaderPanel()).setVisible(false); // temporary fix for weird Linux look and feel issues
+        this.add(new APIKeyDataTypePanel()); // api key + data to export fields
+        this.add(new FileSelectPanel()); // output file location + file type + browse button
+        this.add(new MatchIDPanel()); // match id + start button
+        this.add(new TeamNumberProgressBarPanel()); // team number + progress bar
+        this.add(new OutputLogPanel()); // output log
+        this.add(new FooterPanel()); // version, author, date text
 
         ImageIcon icon = new ImageIcon(getClass().getResource("/tba_logo.png"));
         this.setIconImage(icon.getImage());

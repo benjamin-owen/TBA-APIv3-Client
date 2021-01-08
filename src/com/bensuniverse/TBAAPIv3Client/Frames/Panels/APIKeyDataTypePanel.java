@@ -40,8 +40,6 @@ public class APIKeyDataTypePanel extends JPanel {
 
     public APIKeyDataTypePanel() {
 
-        super(true);
-
         this.setLayout(new GridLayout(1, 2, 5, 5)); // create layout 2 columns x 1 row
 
         api_key = new JTextField(16);

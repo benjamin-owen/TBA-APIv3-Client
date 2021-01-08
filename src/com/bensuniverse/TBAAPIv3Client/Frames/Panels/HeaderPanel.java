@@ -20,14 +20,12 @@ public class HeaderPanel extends JPanel {
 
     public HeaderPanel() {
 
-        super(true);
-
         JLabel main_label = new JLabel("TBA APIv3 Client", SwingConstants.CENTER);
 
         this.add(main_label);
         
         this.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
-        
+
         try {
 
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());

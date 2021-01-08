@@ -47,8 +47,6 @@ public class MatchIDPanel extends JPanel {
     private static final long serialVersionUID = 1L;
 
     public MatchIDPanel() {
-    	
-    	super(true);
 
         this.setLayout(new GridLayout(1, 1, 5, 5)); // grid layout 1 row x 1 column
 

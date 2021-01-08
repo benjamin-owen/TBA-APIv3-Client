@@ -2,7 +2,7 @@
  *
  * Ben Owen
  * 
- * This window contains the unsuccessful processing message
+ * This window creates a popup for error messages
  *
  */
 

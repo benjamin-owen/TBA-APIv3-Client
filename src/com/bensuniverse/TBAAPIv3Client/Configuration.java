@@ -21,6 +21,8 @@
 
 package com.bensuniverse.TBAAPIv3Client;
 
+import com.bensuniverse.TBAAPIv3Client.Frames.ErrorWindow;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -29,15 +31,37 @@ import java.io.IOException;
 
 public class Configuration {
 
-    private static File CONFIG_PATH = new File(System.getProperty("user.home"), "Application Data" + File.separator + "TBAAPIClient"); // file path for config file
-    private static File CONFIG = new File(System.getProperty("user.home"), "Application Data" + File.separator + "TBAAPIClient" + File.separator + "configuration.txt"); // config file
+    private static OperatingSystem OS = OperatingSystem.getOperatingSystem();
+
+    // folder and file path for configuration file
+    private static File CONFIG_DIR;
+    private static File CONFIG;
 
     public static void createConfig() {
 
+        if (OS == OperatingSystem.WINDOWS) {
+
+            // AppData folder
+            CONFIG_DIR = new File(System.getProperty("user.home") + "/Application Data/TBAAPIClient"); // file path for config file
+            CONFIG = new File(CONFIG_DIR + "/configuration.txt");
+
+        } else if (OS == OperatingSystem.LINUX) {
+
+            // home folder
+            CONFIG_DIR = new File(System.getProperty("user.home") + "/.TBAAPIClient"); // file path for config file
+            CONFIG = new File(CONFIG_DIR + "/configuration.txt");
+
+        } else {
+
+            // unknown file structures
+            new ErrorWindow("Your operating system is not currently supported!");
+
+        }
+
         try {
 
-            CONFIG_PATH.mkdir();
-            
+            CONFIG_DIR.mkdirs(); // create parent directories if they do not exist
+
             createInitialConfig(CONFIG.createNewFile()); // create initial config, true if file was created, false if file already existed
 
         } catch (IOException e) { 
@@ -47,7 +71,7 @@ public class Configuration {
         }
     }
 
-    private static void createInitialConfig(boolean create) {
+    private static boolean createInitialConfig(boolean create) {
 
         try {
 
@@ -58,7 +82,7 @@ public class Configuration {
             if (create) {
             	
 	            input_buffer.append("api_key:NV\n");
-	            input_buffer.append("data_type:\n");
+	            input_buffer.append("data_type:NV\n");
 	            input_buffer.append("recent_file_location:NV\n");
 	            input_buffer.append("file_type:NV\n");
 	            input_buffer.append("team_number:NV\n");
@@ -88,10 +112,13 @@ public class Configuration {
             FileOutputStream file_out = new FileOutputStream(CONFIG);
             file_out.write(input_buffer.toString().getBytes());
             file_out.close();
+
+            return true;
     
         } catch (IOException e) {
 
             e.printStackTrace();
+            return false;
 
         }
     }

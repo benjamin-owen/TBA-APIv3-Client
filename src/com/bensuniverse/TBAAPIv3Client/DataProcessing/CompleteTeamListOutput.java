@@ -40,15 +40,51 @@ public class CompleteTeamListOutput {
         if (input_data.size() > 1) { // input array contains values
         	
             for (int i = 0; i < input_data.size(); i++) {
+
+            	System.out.println(i + " | " + input_data.get(i));
             	
             	if (input_data.get(i).contains("{")) city = country = name = nickname = state = number = "NV";
             	
-            	if (input_data.get(i).contains("city") && city.equals("NV")) city = input_data.get(i).substring(input_data.get(i).indexOf(":") + 3, input_data.get(i).indexOf(",") - 2);
-        		if (input_data.get(i).contains("country") && country.equals("NV")) country = input_data.get(i).substring(input_data.get(i).indexOf(":") + 3, input_data.get(i).indexOf(",") - 2);
-        		if (input_data.get(i).contains("name") && name.equals("NV")) name = input_data.get(i).substring(input_data.get(i).indexOf(":") + 3, input_data.get(i).indexOf(",") - 2);
-        		if (input_data.get(i).contains("nickname") && nickname.equals("NV")) nickname = input_data.get(i).substring(input_data.get(i).indexOf(":") + 3, input_data.get(i).indexOf(",") - 2);
-        		if (input_data.get(i).contains("state_prov") && state.equals("NV")) state = input_data.get(i).substring(input_data.get(i).indexOf(":") + 3, input_data.get(i).indexOf(",") - 2);
-        		if (input_data.get(i).contains("team_number") && number.equals("NV")) number = input_data.get(i).substring(input_data.get(i).indexOf(":") + 2);
+            	try {
+            		// substring information within "city" field
+            		if (input_data.get(i).contains("city") && city.equals("NV"))
+            			city = input_data.get(i).substring(input_data.get(i).indexOf(":") + 3,
+								input_data.get(i).indexOf(",") - 1);
+				} catch (StringIndexOutOfBoundsException e) { city = ""; } // no city value found; leave blank
+
+				try {
+					// substring information within "country" field
+					if (input_data.get(i).contains("country") && country.equals("NV"))
+						country = input_data.get(i).substring(input_data.get(i).indexOf(":") + 3,
+								input_data.get(i).indexOf(",") - 1);
+				} catch (StringIndexOutOfBoundsException e) { country = ""; } // no country value found; leave blank
+
+				try {
+					// substring information within "name" field
+					if (input_data.get(i).contains("name") && name.equals("NV"))
+						name = input_data.get(i).substring(input_data.get(i).indexOf(":") + 3,
+							input_data.get(i).indexOf(",") - 1);
+				} catch (StringIndexOutOfBoundsException e) { name = ""; } // no name value found; leave blank
+
+				try {
+					// substring information within "nickname" field
+					if (input_data.get(i).contains("nickname") && nickname.equals("NV"))
+						nickname = input_data.get(i).substring(input_data.get(i).indexOf(":") + 3,
+							input_data.get(i).indexOf(",") - 1);
+				} catch (StringIndexOutOfBoundsException e) { nickname = ""; } // no nickname value found; leave blank
+
+				try {
+					// substring information within "state_prov" field
+					if (input_data.get(i).contains("state_prov") && state.equals("NV"))
+						state = input_data.get(i).substring(input_data.get(i).indexOf(":") + 3,
+								input_data.get(i).indexOf(",") - 1);
+				} catch (StringIndexOutOfBoundsException e) { state = ""; } // no state value found; leave blank
+
+				try {
+					// substring information within "team_number" field
+					if (input_data.get(i).contains("team_number") && number.equals("NV"))
+						number = input_data.get(i).substring(input_data.get(i).indexOf(":") + 2);
+				} catch (StringIndexOutOfBoundsException e) { number = ""; } // no team number value found; leave blank
         		
             	if (input_data.get(i).contains("}")) { // end of entry
         			

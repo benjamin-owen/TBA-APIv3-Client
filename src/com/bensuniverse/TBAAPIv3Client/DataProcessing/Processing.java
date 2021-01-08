@@ -23,6 +23,7 @@ import com.bensuniverse.TBAAPIv3Client.Frames.CompletedWindow;
 import com.bensuniverse.TBAAPIv3Client.Frames.ErrorWindow;
 import com.bensuniverse.TBAAPIv3Client.Frames.Panels.DataType;
 import com.bensuniverse.TBAAPIv3Client.Frames.Panels.OutputLogPanel;
+import com.bensuniverse.TBAAPIv3Client.OperatingSystem;
 
 public class Processing {
 
@@ -49,6 +50,8 @@ public class Processing {
 
             public void run() {
 
+                OperatingSystem OS = OperatingSystem.getOperatingSystem();
+
                 long start_time = System.currentTimeMillis();
                 
                 OutputLogPanel.appendText("Step 1 [Retrieving data]...\n");
@@ -61,13 +64,37 @@ public class Processing {
                 List<String> input_list = new ArrayList<String>();
                 
                 if (DATA_TYPE == DataType.MATCH_SCHEDULE || DATA_TYPE == DataType.EVENT_TEAM_LIST) {
-                	
-	                String command = getCommand(DATA_TYPE);
-	                ProcessBuilder process_builder = new ProcessBuilder(command.split(" "));
+
+	                ProcessBuilder process_builder = new ProcessBuilder();
+
+	                if (OS == OperatingSystem.WINDOWS) {
+
+                        process_builder.command(getCommand(DATA_TYPE).split(" "));
+
+                    } else if (OS == OperatingSystem.LINUX) {
+
+                        process_builder = new ProcessBuilder();
+                        process_builder.command("bash", "-c", getCommand(DATA_TYPE));
+
+                    }
 	
 	                try {
-	
-	                    process_builder.directory(new File("C:"));
+
+	                    // define where to run curl command
+	                    if (OS == OperatingSystem.WINDOWS) {
+
+                            process_builder.directory(new File("C:"));
+
+                        } else if (OS == OperatingSystem.LINUX) {
+
+                            process_builder.directory(new File(System.getProperty("user.home")));
+
+                        } else {
+
+	                        new ErrorWindow("Your operating system is currently not supported!");
+
+                        }
+
 	                    process = process_builder.start(); // run command
 	
 	                } catch (IOException e) {
@@ -95,13 +122,36 @@ public class Processing {
                 	int current_page = 0;
                 	
                 	do {
-                		
-                		String command = getCommand(DATA_TYPE, current_page);
-    	                ProcessBuilder process_builder = new ProcessBuilder(command.split(" "));
+
+    	                ProcessBuilder process_builder = new ProcessBuilder();
+
+                        if (OS == OperatingSystem.WINDOWS) {
+
+                            process_builder.command(getCommand(DATA_TYPE, current_page).split(" "));
+
+                        } else if (OS == OperatingSystem.LINUX) {
+
+                            process_builder.command("bash", "-c", getCommand(DATA_TYPE, current_page));
+
+                        }
     	
     	                try {
-    	
-    	                    process_builder.directory(new File("C:"));
+
+                            // define where to run curl command
+                            if (OS == OperatingSystem.WINDOWS) {
+
+                                process_builder.directory(new File("C:"));
+
+                            } else if (OS == OperatingSystem.LINUX) {
+
+                                process_builder.directory(new File(System.getProperty("user.home")));
+
+                            } else {
+
+                                new ErrorWindow("Your operating system is currently not supported!");
+
+                            }
+
     	                    process = process_builder.start(); // run command
     	
     	                } catch (IOException e) {

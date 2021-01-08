@@ -42,8 +42,6 @@ public class TeamNumberProgressBarPanel extends JPanel {
     private static final long serialVersionUID = 1L;
 
     public TeamNumberProgressBarPanel() {
-
-        super(true);
         
         this.setLayout(new GridLayout(1, 2, 5, 5)); // grid layout 1 row x 2 columns
         
@@ -105,11 +103,13 @@ public class TeamNumberProgressBarPanel extends JPanel {
     	Integer bold_team_number = -1;
     	
     	try {
-    		
-    		bold_team_number = Integer.parseInt(bold_team.getText()); // return team number if valid (no characters)
+
+    	    if (!bold_team.getText().equals(""))
+    		    bold_team_number = Integer.parseInt(bold_team.getText()); // return team number if valid (no characters)
     		
     	} catch (NumberFormatException e) {
-    		
+
+    	    e.printStackTrace();
     		new ErrorWindow("Invalid team number!");
     		
     	}

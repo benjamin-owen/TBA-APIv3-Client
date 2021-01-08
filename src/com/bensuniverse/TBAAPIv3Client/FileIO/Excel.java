@@ -174,7 +174,7 @@ public class Excel {
 			workbook.write(fos);
 			fos.close();
 
-			System.out.println("xls file written");
+			System.out.println("Excel file written");
 
 		} catch (IOException e) {
 
