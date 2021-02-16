@@ -48,7 +48,7 @@ public class Configuration {
         } else if (OS == OperatingSystem.LINUX) {
 
             // home folder
-            CONFIG_DIR = new File(System.getProperty("user.home") + "/.TBAAPIClient"); // file path for config file
+            CONFIG_DIR = new File(System.getProperty("user.home") + "/.tbaapiclient"); // file path for config file
             CONFIG = new File(CONFIG_DIR + "/configuration.txt");
 
         } else {
