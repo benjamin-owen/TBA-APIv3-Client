@@ -27,7 +27,7 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import com.bensuniverse.TBAAPIv3Client.Frames.ErrorWindow;
-import com.bensuniverse.TBAAPIv3Client.Frames.Panels.DataType;
+import com.bensuniverse.TBAAPIv3Client.DataProcessing.DataType;
 
 public class Excel {
 

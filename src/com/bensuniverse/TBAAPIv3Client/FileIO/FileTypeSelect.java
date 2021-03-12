@@ -15,7 +15,7 @@ package com.bensuniverse.TBAAPIv3Client.FileIO;
 
 import java.util.List;
 
-import com.bensuniverse.TBAAPIv3Client.Frames.Panels.DataType;
+import com.bensuniverse.TBAAPIv3Client.DataProcessing.DataType;
 import com.bensuniverse.TBAAPIv3Client.Frames.Panels.FileSelectPanelRIGHT;
 import com.bensuniverse.TBAAPIv3Client.Frames.Panels.TeamNumberProgressBarPanel;
 
