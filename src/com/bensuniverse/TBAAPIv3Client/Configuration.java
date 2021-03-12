@@ -80,7 +80,8 @@ public class Configuration {
 
             // create initial values
             if (create) {
-            	
+
+                input_buffer.append("look_and_feel:DARK\n");
 	            input_buffer.append("api_key:NV\n");
 	            input_buffer.append("data_type:NV\n");
 	            input_buffer.append("recent_file_location:NV\n");
@@ -90,6 +91,9 @@ public class Configuration {
             } else {
             	
             	// append values if they are not present
+                if (readValue("look_and_feel").equals("")) input_buffer.append("look_and_feel:DARK\n");
+                else input_buffer.append("look_and_feel:" + readValue("look_and_feel") + "\n");
+
             	if (readValue("api_key").equals("")) input_buffer.append("api_key:NV\n");
 	            else input_buffer.append("api_key:" + readValue("api_key") + "\n");
             	
