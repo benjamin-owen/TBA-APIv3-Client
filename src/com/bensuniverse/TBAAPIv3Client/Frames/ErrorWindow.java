@@ -15,22 +15,13 @@ import javax.swing.UIManager;
 import com.bensuniverse.TBAAPIv3Client.Frames.Panels.MatchIDPanel;
 import com.bensuniverse.TBAAPIv3Client.Frames.Panels.OutputLogPanel;
 import com.bensuniverse.TBAAPIv3Client.Frames.Panels.TeamNumberProgressBarPanel;
+import com.bensuniverse.TBAAPIv3Client.Main;
 
 public class ErrorWindow extends JOptionPane {
 
     private static final long serialVersionUID = 1L;
 
     public ErrorWindow(String error_message) {
-
-        try {
-
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-
-        } catch (Exception e) {
-
-            e.printStackTrace();
-
-        }
 
         System.out.println("ERROR! [" + error_message + "]");
         OutputLogPanel.appendText("ERROR! [" + error_message + "]"); // send error message to output log

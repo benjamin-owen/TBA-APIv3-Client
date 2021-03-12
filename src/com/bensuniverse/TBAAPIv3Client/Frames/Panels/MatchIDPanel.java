@@ -29,15 +29,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Arrays;
 
-import javax.swing.BorderFactory;
-import javax.swing.JButton;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.UIManager;
+import javax.swing.*;
 import javax.swing.border.TitledBorder;
 
+import com.bensuniverse.TBAAPIv3Client.DataProcessing.DataType;
 import com.bensuniverse.TBAAPIv3Client.DataProcessing.Processing;
 import com.bensuniverse.TBAAPIv3Client.Frames.ErrorWindow;
+import com.bensuniverse.TBAAPIv3Client.Frames.Theme;
+import com.bensuniverse.TBAAPIv3Client.Main;
 
 public class MatchIDPanel extends JPanel {
 
@@ -104,15 +103,6 @@ public class MatchIDPanel extends JPanel {
 
         this.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 
-        try {
-
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-
-        } catch (Exception e) {
-
-            e.printStackTrace();
-
-        }
     }
     
     public static JButton getStartButton() {

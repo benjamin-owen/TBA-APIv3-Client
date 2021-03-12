@@ -33,6 +33,8 @@ import javax.swing.event.DocumentListener;
 
 import com.bensuniverse.TBAAPIv3Client.Configuration;
 import com.bensuniverse.TBAAPIv3Client.Frames.ErrorWindow;
+import com.bensuniverse.TBAAPIv3Client.Frames.Theme;
+import com.bensuniverse.TBAAPIv3Client.Main;
 
 public class TeamNumberProgressBarPanel extends JPanel {
     
@@ -86,16 +88,7 @@ public class TeamNumberProgressBarPanel extends JPanel {
             }
         };
         bold_team.getDocument().addDocumentListener(documentListener);
-        
-        try {
 
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-
-        } catch (Exception e) {
-
-            e.printStackTrace();
-
-        }
     }
     
     public static int getTeam() {

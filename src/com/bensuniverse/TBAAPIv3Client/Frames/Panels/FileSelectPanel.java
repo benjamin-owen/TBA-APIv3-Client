@@ -29,6 +29,8 @@ import javax.swing.event.DocumentListener;
 
 import com.bensuniverse.TBAAPIv3Client.Configuration;
 import com.bensuniverse.TBAAPIv3Client.FileIO.FileType;
+import com.bensuniverse.TBAAPIv3Client.Frames.Theme;
+import com.bensuniverse.TBAAPIv3Client.Main;
 
 public class FileSelectPanel extends JPanel {
 
@@ -113,15 +115,6 @@ public class FileSelectPanel extends JPanel {
         };
         file_location_input.getDocument().addDocumentListener(documentListener);
 
-        try {
-
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-
-        } catch (Exception e) {
-
-            e.printStackTrace();
-
-        }
     }
 
     public static String getFilePath() {

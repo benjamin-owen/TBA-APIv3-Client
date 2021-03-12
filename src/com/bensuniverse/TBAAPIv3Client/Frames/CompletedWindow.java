@@ -14,22 +14,13 @@ import javax.swing.UIManager;
 
 import com.bensuniverse.TBAAPIv3Client.Frames.Panels.MatchIDPanel;
 import com.bensuniverse.TBAAPIv3Client.Frames.Panels.TeamNumberProgressBarPanel;
+import com.bensuniverse.TBAAPIv3Client.Main;
 
 public class CompletedWindow extends JOptionPane {
 
     private static final long serialVersionUID = 1L;
 
     public CompletedWindow(int total_records, int found_records, long time) {
-
-        try {
-
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-
-        } catch (Exception e) {
-
-            e.printStackTrace();
-
-        }
         
         double timeSeconds = (time / 1000.0);
         

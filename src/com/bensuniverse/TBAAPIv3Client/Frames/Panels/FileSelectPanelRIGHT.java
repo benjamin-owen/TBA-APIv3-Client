@@ -29,6 +29,8 @@ import javax.swing.border.TitledBorder;
 import com.bensuniverse.TBAAPIv3Client.Configuration;
 import com.bensuniverse.TBAAPIv3Client.FileIO.FileType;
 import com.bensuniverse.TBAAPIv3Client.Frames.MainWindow;
+import com.bensuniverse.TBAAPIv3Client.Frames.Theme;
+import com.bensuniverse.TBAAPIv3Client.Main;
 
 public class FileSelectPanelRIGHT extends JPanel {
 
@@ -124,15 +126,6 @@ public class FileSelectPanelRIGHT extends JPanel {
 		this.add(file_select);
 		this.add(browse_button);
 
-		try {
-
-			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-
-		} catch (Exception e) {
-
-			e.printStackTrace();
-
-		}
 	}
 
 	public static FileType getFileTypeSelected() {

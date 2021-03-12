@@ -16,16 +16,15 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.BorderFactory;
-import javax.swing.JComboBox;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.UIManager;
+import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
 import com.bensuniverse.TBAAPIv3Client.Configuration;
+import com.bensuniverse.TBAAPIv3Client.DataProcessing.DataType;
+import com.bensuniverse.TBAAPIv3Client.Frames.Theme;
+import com.bensuniverse.TBAAPIv3Client.Main;
 
 public class APIKeyDataTypePanel extends JPanel {
 	
@@ -113,15 +112,6 @@ public class APIKeyDataTypePanel extends JPanel {
         };
         api_key.getDocument().addDocumentListener(documentListener);
 
-        try {
-
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-
-        } catch (Exception e) {
-
-            e.printStackTrace();
-
-        }
     }
 
     public static String getAPIKey() {

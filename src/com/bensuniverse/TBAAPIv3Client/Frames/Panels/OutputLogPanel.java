@@ -14,6 +14,9 @@
 
 package com.bensuniverse.TBAAPIv3Client.Frames.Panels;
 
+import com.bensuniverse.TBAAPIv3Client.Frames.Theme;
+import com.bensuniverse.TBAAPIv3Client.Main;
+
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
@@ -40,15 +43,6 @@ public class OutputLogPanel extends JPanel {
 
         this.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 
-        try {
-
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-
-        } catch (Exception e) {
-
-            e.printStackTrace();
-
-        }
     }
 
     public static void clear() {
