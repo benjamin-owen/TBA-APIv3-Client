@@ -21,7 +21,6 @@ import java.util.Scanner;
 import com.bensuniverse.TBAAPIv3Client.FileIO.FileTypeSelect;
 import com.bensuniverse.TBAAPIv3Client.Frames.CompletedWindow;
 import com.bensuniverse.TBAAPIv3Client.Frames.ErrorWindow;
-import com.bensuniverse.TBAAPIv3Client.Frames.Panels.DataType;
 import com.bensuniverse.TBAAPIv3Client.Frames.Panels.OutputLogPanel;
 import com.bensuniverse.TBAAPIv3Client.OperatingSystem;
 
