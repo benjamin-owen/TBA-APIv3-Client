@@ -15,8 +15,6 @@ package com.bensuniverse.TBAAPIv3Client.DataProcessing;
 
 import java.util.List;
 
-import com.bensuniverse.TBAAPIv3Client.Frames.Panels.DataType;
-
 public class OutputSelect {
 	
 	public static List<String> process(List<String> input_data, DataType data_type) {
