@@ -82,12 +82,14 @@ public class Main {
 
     }
 
+    // restart jar file
     public static void restart() {
 
         // get current file
         final String javaBin = System.getProperty("java.home") + "/bin/java";
         File currentJar = null;
         try {
+            // get current file name
             currentJar = new File(Main.class.getProtectionDomain().getCodeSource().getLocation().toURI());
         } catch (URISyntaxException e) {
             e.printStackTrace();
