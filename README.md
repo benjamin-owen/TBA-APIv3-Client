@@ -6,4 +6,5 @@ Usage instructions and additional information can be found at https://www.bensun
 Changelog:<br/>
 -
 v2.0 - Initial release<br/>
-v2.1 - Added Linux support and other minor bug fixes
+v2.1 - Added Linux support and other minor bug fixes<br/>
+v2.2 - Add FlatLaf light/dark theme customization and minor Linux configuration file changes
