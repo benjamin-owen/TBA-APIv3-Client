@@ -48,7 +48,13 @@ public class Configuration {
         } else if (OS == OperatingSystem.LINUX) {
 
             // home folder
-            CONFIG_DIR = new File(System.getProperty("user.home") + "/.tbaapiclient"); // file path for config file
+            CONFIG_DIR = new File(System.getProperty("user.home") + "/.config/tbaapiclient"); // file path for config file
+            CONFIG = new File(CONFIG_DIR + "/configuration.txt");
+
+        } else if (OS == OperatingSystem.MAC) {
+
+            // $HOME/Library/Containers folder
+            CONFIG_DIR = new File(System.getProperty("user.home") + "/Library/Containers/com.bensuniverse.tbaapiclient"); // file path for config file
             CONFIG = new File(CONFIG_DIR + "/configuration.txt");
 
         } else {

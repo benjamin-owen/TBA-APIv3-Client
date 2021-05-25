@@ -12,10 +12,13 @@
 
 package com.bensuniverse.TBAAPIv3Client;
 
+import java.util.Locale;
+
 public enum OperatingSystem {
 
 	WINDOWS("Windows"),
-	LINUX("Linux");
+	LINUX("Linux"),
+	MAC("Mac");
 
 	private String name;
 
@@ -33,13 +36,19 @@ public enum OperatingSystem {
 
 	public static OperatingSystem getOperatingSystem() {
 
-		if (System.getProperty("os.name").toUpperCase().contains("WINDOWS")) {
+		String OS = System.getProperty("os.name").toUpperCase();
+
+		if (OS.contains("WINDOWS")) {
 
 			return WINDOWS;
 
-		} else if (System.getProperty("os.name").toUpperCase().contains("LINUX")) {
+		} else if (OS.contains("LINUX")) {
 
 			return LINUX;
+
+		} else if (OS.contains("MAC")) {
+
+			return MAC;
 
 		}
 
