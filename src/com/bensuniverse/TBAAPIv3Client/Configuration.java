@@ -42,19 +42,19 @@ public class Configuration {
         if (OS == OperatingSystem.WINDOWS) {
 
             // AppData folder
-            CONFIG_DIR = new File(System.getProperty("user.home") + "/Application Data/TBAAPIClient"); // file path for config file
+            CONFIG_DIR = new File(System.getProperty("user.home") + "/Application Data/TBAAPIv3Client"); // file path for config file
             CONFIG = new File(CONFIG_DIR + "/configuration.txt");
 
         } else if (OS == OperatingSystem.LINUX) {
 
             // home folder
-            CONFIG_DIR = new File(System.getProperty("user.home") + "/.config/tbaapiclient"); // file path for config file
+            CONFIG_DIR = new File(System.getProperty("user.home") + "/.config/tbaapiv3client"); // file path for config file
             CONFIG = new File(CONFIG_DIR + "/configuration.txt");
 
         } else if (OS == OperatingSystem.MAC) {
 
             // $HOME/Library/Containers folder
-            CONFIG_DIR = new File(System.getProperty("user.home") + "/Library/Containers/com.bensuniverse.tbaapiclient"); // file path for config file
+            CONFIG_DIR = new File(System.getProperty("user.home") + "/Library/Containers/com.bensuniverse.tbaapiv3client"); // file path for config file
             CONFIG = new File(CONFIG_DIR + "/configuration.txt");
 
         } else {
