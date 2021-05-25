@@ -40,10 +40,8 @@ public class Main {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
         } else if (theme == Theme.LIGHT) { // light theme selected
             FlatLightLaf.setup();
-
         } else if (theme == Theme.DARK) { // dark theme selected
             FlatDarkLaf.setup();
         }
