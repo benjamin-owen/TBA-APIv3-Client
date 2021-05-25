@@ -42,10 +42,10 @@ public class Main {
             }
 
         } else if (theme == Theme.LIGHT) { // light theme selected
-            FlatLightLaf.install();
+            FlatLightLaf.setup();
 
         } else if (theme == Theme.DARK) { // dark theme selected
-            FlatDarkLaf.install();
+            FlatDarkLaf.setup();
         }
 
         new MainWindow(); // create main GUI
