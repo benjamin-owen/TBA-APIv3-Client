@@ -22,9 +22,9 @@ import java.util.ArrayList;
 public class Main {
 
     private final static String NAME = "TBA APIv3 Client";
-    private final static String VERSION = "2.2";
+    private final static String VERSION = "2.3";
     private final static String AUTHOR = "Benjamin Owen";
-    private final static String DATE = "2021-03-11";
+    private final static String DATE = "2021-05-24";
 
     public static void main(String[] args) {
 
