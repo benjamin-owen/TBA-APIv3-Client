@@ -58,9 +58,13 @@ When using the program, most settings are saved when the program is closed, incl
 ## Other Information
 
 #### Configuration files are stored at the following directories:
-- **Linux:** *$HOME*/.config/tbaapiclient/configuration.txt
-- **Windows:** *%APPDATA%*/TBAAPIClient/configuration.txt
-- **MacOS:** *$HOME*/Library/Containers/com.bensuniverse.tbaapiclient/configuration.txt
+- **Linux:** *$HOME*/.config/tbaapiv3client/configuration.txt
+- **Windows:** *%APPDATA%*/TBAAPIv3Client/configuration.txt
+- **MacOS:** *$HOME*/Library/Containers/com.bensuniverse.tbaapiv3client/configuration.txt
+
+#### Change program theme
+- Look and feel theme options are in the ribbon menu:
+  - View > Change look and feel > *Select theme*
 
 #### Libraries Used
 - [Apache POI](https://poi.apache.org/) library for exporting to .XLSX and .XLS file format
