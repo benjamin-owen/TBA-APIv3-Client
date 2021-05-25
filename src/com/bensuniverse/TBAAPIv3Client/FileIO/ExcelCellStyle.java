@@ -23,7 +23,8 @@ import org.apache.poi.ss.usermodel.IndexedColors;
 import org.apache.poi.ss.usermodel.Workbook;
 
 public enum ExcelCellStyle {
-	
+
+	DEFAULT(false),
 	HEADER(true),
 	HEADER_RED(true, IndexedColors.CORAL.getIndex()),
 	HEADER_BLUE(true, IndexedColors.PALE_BLUE.getIndex()),

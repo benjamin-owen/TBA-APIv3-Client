@@ -126,7 +126,7 @@ public class Excel {
 				String current_team = temp_str.substring(0, temp_str.indexOf(";")); // get the number before the ';'
 
 				try {
-					
+
 					current_cell.setCellValue(Integer.parseInt(current_team));
 					
 				} catch (NumberFormatException e) {
@@ -145,6 +145,10 @@ public class Excel {
 				} else if (cellIndex >= 4 && cellIndex <= 6 && data_type == DataType.MATCH_SCHEDULE) { // blue
 
 					current_cell.setCellStyle(ExcelCellStyle.BLUE.getStyle(workbook));
+
+				} else { // other (match number)
+
+					current_cell.setCellStyle(ExcelCellStyle.DEFAULT.getStyle(workbook));
 
 				}
 				
