@@ -29,7 +29,7 @@ public class ErrorWindow extends JOptionPane {
         ImageIcon icon = new ImageIcon(getClass().getResource("/tba_logo_error.png"));
         
         error_message = "  " + error_message + "  ";
-        JOptionPane.showMessageDialog(this, error_message, "Error!", JOptionPane.INFORMATION_MESSAGE, icon);
+        JOptionPane.showMessageDialog(MainWindow.getFrames()[0], error_message, "Error!", JOptionPane.INFORMATION_MESSAGE, icon);
 
         TeamNumberProgressBarPanel.setProgressBarValue(0); // reset progress bar
         MatchIDPanel.setMatchID(""); // reset match ID text field

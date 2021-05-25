@@ -8,9 +8,7 @@
 
 package com.bensuniverse.TBAAPIv3Client.Frames;
 
-import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
-import javax.swing.UIManager;
+import javax.swing.*;
 
 import com.bensuniverse.TBAAPIv3Client.Frames.Panels.MatchIDPanel;
 import com.bensuniverse.TBAAPIv3Client.Frames.Panels.TeamNumberProgressBarPanel;
@@ -26,9 +24,9 @@ public class CompletedWindow extends JOptionPane {
         
         ImageIcon icon = new ImageIcon(getClass().getResource("/tba_logo_success.png"));
 
-        String message = "Found " + found_records + " entries from " + total_records + " total lines in " + Double.toString(timeSeconds) + " seconds."; // display information
+        String message = "Found " + found_records + " entries from " + total_records + " total lines in " + timeSeconds + " seconds."; // display information
         System.out.println(message);
-        JOptionPane.showMessageDialog(this, message, "Completed!", JOptionPane.INFORMATION_MESSAGE, icon);
+        JOptionPane.showMessageDialog(MainWindow.getFrames()[0], message, "Completed!", JOptionPane.INFORMATION_MESSAGE, icon);
 
         TeamNumberProgressBarPanel.setProgressBarValue(0); // reset progress bar
         MatchIDPanel.setMatchID(""); // reset match ID
