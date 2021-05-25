@@ -5,6 +5,9 @@
 - Change Linux configuration file location (*$HOME*/.config/tbaapiclient/configuration.txt)
 - Fix completed/error dialog not positioned at same location as parent frame
 - Update README.md to contain more information and usage instructions
+- Fix spreadsheet font variation between columns of output file (.XLSX and .XLS)
+- Update Apache POI libraries to 5.0.0
+- Update FlatLaf to 1.2
 
 **v2.2**
 - Ability to change between different themes (system default, light theme, dark theme)
