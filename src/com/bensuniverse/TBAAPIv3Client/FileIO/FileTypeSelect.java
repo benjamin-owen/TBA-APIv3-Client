@@ -25,7 +25,7 @@ public class FileTypeSelect {
 
 		FileType file_type = FileSelectPanelRIGHT.getFileTypeSelected(); // get file type from dropdown mneu in main window
 
-		if (file_type == FileType.TXT) {
+		if (file_type == FileType.TXT || file_type == FileType.CSV) {
 
 			return new Text(file_path).writeFile(data); // create text file output
 

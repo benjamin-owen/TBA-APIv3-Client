@@ -55,6 +55,7 @@ public class FileSelectPanelRIGHT extends JPanel {
 		file_chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
 		file_chooser.setAcceptAllFileFilterUsed(true);
 		if (getFileTypeSelected() == FileType.TXT) file_chooser.setSelectedFile(new File("tba_output.txt")); // set default file name if dropdown is TXT
+		else if (getFileTypeSelected() == FileType.CSV) file_chooser.setSelectedFile(new File("tba_output.csv")); // set default file name if dropdown is CSV
 		else if (getFileTypeSelected() == FileType.XLSX) file_chooser.setSelectedFile(new File("tba_output.xlsx")); // set default file name if dropdown is XLSX
 		else if (getFileTypeSelected() == FileType.XLS) file_chooser.setSelectedFile(new File("tba_output.xls")); // set default file name if dropdown is XLS
 
@@ -79,6 +80,13 @@ public class FileSelectPanelRIGHT extends JPanel {
 					System.out.println("File type changed!");
 					FileSelectPanel.setFilePath(temp_path + ".txt");
 					file_chooser.setSelectedFile(new File("tba_output.txt"));
+					TeamNumberProgressBarPanel.setTeamNumberEnabled(false);
+
+				} else if (getFileTypeSelected() == FileType.CSV) {
+
+					System.out.println("File type changed!");
+					FileSelectPanel.setFilePath(temp_path + ".csv");
+					file_chooser.setSelectedFile(new File("tba_output.csv"));
 					TeamNumberProgressBarPanel.setTeamNumberEnabled(false);
 
 				} else if (getFileTypeSelected() == FileType.XLSX) {
@@ -108,6 +116,7 @@ public class FileSelectPanelRIGHT extends JPanel {
 				if (file_chooser.showDialog(MainWindow.getFrames()[0], "Select") == JFileChooser.APPROVE_OPTION) { // if user selects a file
 
 					if (file_chooser.getSelectedFile().getAbsolutePath().toLowerCase().contains(".txt")
+							|| file_chooser.getSelectedFile().getAbsolutePath().toLowerCase().contains(".csv")
 							|| file_chooser.getSelectedFile().getAbsolutePath().toLowerCase().contains(".xlsx")
 							|| file_chooser.getSelectedFile().getAbsolutePath().toLowerCase().contains(".xls")) { // if file extension contains correct extension
 
