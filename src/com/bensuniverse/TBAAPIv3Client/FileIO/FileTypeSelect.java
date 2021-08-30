@@ -27,7 +27,7 @@ public class FileTypeSelect {
 
 		if (file_type == FileType.TXT || file_type == FileType.CSV) {
 
-			return new Text(file_path).writeFile(data); // create text file output
+			return new Text(file_path).writeFile(data, data_type); // create text file output
 
 		} else if (file_type == FileType.XLS || file_type == FileType.XLSX) {
 

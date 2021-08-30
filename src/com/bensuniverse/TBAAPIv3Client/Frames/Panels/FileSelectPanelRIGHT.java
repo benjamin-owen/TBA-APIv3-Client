@@ -18,6 +18,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.util.Locale;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -115,10 +116,12 @@ public class FileSelectPanelRIGHT extends JPanel {
 
 				if (file_chooser.showDialog(MainWindow.getFrames()[0], "Select") == JFileChooser.APPROVE_OPTION) { // if user selects a file
 
-					if (file_chooser.getSelectedFile().getAbsolutePath().toLowerCase().contains(".txt")
-							|| file_chooser.getSelectedFile().getAbsolutePath().toLowerCase().contains(".csv")
-							|| file_chooser.getSelectedFile().getAbsolutePath().toLowerCase().contains(".xlsx")
-							|| file_chooser.getSelectedFile().getAbsolutePath().toLowerCase().contains(".xls")) { // if file extension contains correct extension
+					String file_path = file_chooser.getSelectedFile().getAbsolutePath().toLowerCase();
+
+					if (file_path.contains(".txt")
+							|| file_path.contains(".csv")
+							|| file_path.contains(".xlsx")
+							|| file_path.contains(".xls")) { // if file extension contains correct extension
 
 						FileSelectPanel.file_location_input.setText(file_chooser.getSelectedFile().getAbsolutePath()); // set text field = new file path
 
@@ -127,7 +130,6 @@ public class FileSelectPanelRIGHT extends JPanel {
 						FileSelectPanel.file_location_input.setText(file_chooser.getSelectedFile().getAbsolutePath() + "." + file_select.getSelectedItem().toString().toLowerCase()); // manually add correct extension
 
 					}
-
 				}
 			}
 		});
