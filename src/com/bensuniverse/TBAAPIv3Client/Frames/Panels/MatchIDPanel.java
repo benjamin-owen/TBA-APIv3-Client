@@ -71,6 +71,7 @@ public class MatchIDPanel extends JPanel {
                     	String temp_path = FileSelectPanel.getFilePath();
                     	
                     	if (temp_path.substring(temp_path.length() - 4).equalsIgnoreCase(".txt")
+                                || temp_path.substring(temp_path.length() - 4).equalsIgnoreCase(".csv")
                     			|| temp_path.substring(temp_path.length() - 5).equalsIgnoreCase(".xlsx")
                     			|| temp_path.substring(temp_path.length() - 4).equalsIgnoreCase(".xls")) { // if file path contains correct extension
 

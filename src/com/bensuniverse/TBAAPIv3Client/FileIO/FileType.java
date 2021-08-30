@@ -16,6 +16,7 @@ package com.bensuniverse.TBAAPIv3Client.FileIO;
 public enum FileType {
 
 	TXT,
+	CSV,
 	XLSX,
 	XLS
 

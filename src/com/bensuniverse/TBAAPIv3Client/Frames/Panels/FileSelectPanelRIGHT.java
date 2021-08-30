@@ -18,6 +18,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.util.Locale;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -55,6 +56,7 @@ public class FileSelectPanelRIGHT extends JPanel {
 		file_chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
 		file_chooser.setAcceptAllFileFilterUsed(true);
 		if (getFileTypeSelected() == FileType.TXT) file_chooser.setSelectedFile(new File("tba_output.txt")); // set default file name if dropdown is TXT
+		else if (getFileTypeSelected() == FileType.CSV) file_chooser.setSelectedFile(new File("tba_output.csv")); // set default file name if dropdown is CSV
 		else if (getFileTypeSelected() == FileType.XLSX) file_chooser.setSelectedFile(new File("tba_output.xlsx")); // set default file name if dropdown is XLSX
 		else if (getFileTypeSelected() == FileType.XLS) file_chooser.setSelectedFile(new File("tba_output.xls")); // set default file name if dropdown is XLS
 
@@ -79,6 +81,13 @@ public class FileSelectPanelRIGHT extends JPanel {
 					System.out.println("File type changed!");
 					FileSelectPanel.setFilePath(temp_path + ".txt");
 					file_chooser.setSelectedFile(new File("tba_output.txt"));
+					TeamNumberProgressBarPanel.setTeamNumberEnabled(false);
+
+				} else if (getFileTypeSelected() == FileType.CSV) {
+
+					System.out.println("File type changed!");
+					FileSelectPanel.setFilePath(temp_path + ".csv");
+					file_chooser.setSelectedFile(new File("tba_output.csv"));
 					TeamNumberProgressBarPanel.setTeamNumberEnabled(false);
 
 				} else if (getFileTypeSelected() == FileType.XLSX) {
@@ -107,9 +116,12 @@ public class FileSelectPanelRIGHT extends JPanel {
 
 				if (file_chooser.showDialog(MainWindow.getFrames()[0], "Select") == JFileChooser.APPROVE_OPTION) { // if user selects a file
 
-					if (file_chooser.getSelectedFile().getAbsolutePath().toLowerCase().contains(".txt")
-							|| file_chooser.getSelectedFile().getAbsolutePath().toLowerCase().contains(".xlsx")
-							|| file_chooser.getSelectedFile().getAbsolutePath().toLowerCase().contains(".xls")) { // if file extension contains correct extension
+					String file_path = file_chooser.getSelectedFile().getAbsolutePath().toLowerCase();
+
+					if (file_path.contains(".txt")
+							|| file_path.contains(".csv")
+							|| file_path.contains(".xlsx")
+							|| file_path.contains(".xls")) { // if file extension contains correct extension
 
 						FileSelectPanel.file_location_input.setText(file_chooser.getSelectedFile().getAbsolutePath()); // set text field = new file path
 
@@ -118,7 +130,6 @@ public class FileSelectPanelRIGHT extends JPanel {
 						FileSelectPanel.file_location_input.setText(file_chooser.getSelectedFile().getAbsolutePath() + "." + file_select.getSelectedItem().toString().toLowerCase()); // manually add correct extension
 
 					}
-
 				}
 			}
 		});

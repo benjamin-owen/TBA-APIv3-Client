@@ -1,5 +1,10 @@
 # Changelog
 
+**v2.4**
+- Add CSV output support
+- Add header to TXT and CSV output files
+- Update FlatLaf to 1.5
+
 **v2.3**
 - Add MacOS support
 - Change configuration file location for all OS (new location found in README)

@@ -94,6 +94,13 @@ public class FileSelectPanel extends JPanel {
 	            		TeamNumberProgressBarPanel.setTeamNumberEnabled(false);
 	            		
 	            	}
+
+                    if (value.substring(value.length() - 4).equalsIgnoreCase(".csv")) {
+
+                        FileSelectPanelRIGHT.setFileTypeSelected(FileType.CSV); // set dropdown to CSV if path ends in ".csv"
+                        TeamNumberProgressBarPanel.setTeamNumberEnabled(false);
+
+                    }
 	            	
 	            	if (value.substring(value.length() - 5).equalsIgnoreCase(".xlsx")) {
 	            		
