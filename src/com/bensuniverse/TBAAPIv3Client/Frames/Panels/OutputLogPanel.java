@@ -51,13 +51,7 @@ public class OutputLogPanel extends JPanel {
 
     public static void appendText(String text) {
 
-        SwingUtilities.invokeLater(new Runnable() { // to avoid freezing
-        	
-            public void run() {
-            	
-                output_log.append(text);
-                
-            }
-        });
+        // to avoid freezing
+        SwingUtilities.invokeLater(() -> output_log.append(text));
     }
 }

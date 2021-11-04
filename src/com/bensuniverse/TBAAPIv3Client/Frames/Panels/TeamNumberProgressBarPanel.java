@@ -20,18 +20,14 @@
 
 package com.bensuniverse.TBAAPIv3Client.Frames.Panels;
 
-import java.awt.GridLayout;
+import com.bensuniverse.TBAAPIv3Client.Configuration;
+import com.bensuniverse.TBAAPIv3Client.Frames.ErrorWindow;
 
-import javax.swing.BorderFactory;
-import javax.swing.JPanel;
-import javax.swing.JProgressBar;
-import javax.swing.JTextField;
+import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
-
-import com.bensuniverse.TBAAPIv3Client.Configuration;
-import com.bensuniverse.TBAAPIv3Client.Frames.ErrorWindow;
+import java.awt.*;
 
 public class TeamNumberProgressBarPanel extends JPanel {
     
@@ -90,7 +86,7 @@ public class TeamNumberProgressBarPanel extends JPanel {
     
     public static int getTeam() {
     	
-    	Integer bold_team_number = -1;
+    	int bold_team_number = -1;
     	
     	try {
 

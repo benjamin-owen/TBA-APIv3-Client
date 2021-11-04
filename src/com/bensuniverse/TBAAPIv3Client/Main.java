@@ -98,7 +98,7 @@ public class Main {
             return;
 
         // build command
-        final ArrayList<String> command = new ArrayList<String>();
+        final ArrayList<String> command = new ArrayList<>();
         command.add(javaBin);
         command.add("-jar");
         command.add(currentJar.getPath());

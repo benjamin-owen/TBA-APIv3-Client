@@ -8,12 +8,11 @@
 
 package com.bensuniverse.TBAAPIv3Client.Frames;
 
-import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
-
 import com.bensuniverse.TBAAPIv3Client.Frames.Panels.MatchIDPanel;
 import com.bensuniverse.TBAAPIv3Client.Frames.Panels.OutputLogPanel;
 import com.bensuniverse.TBAAPIv3Client.Frames.Panels.TeamNumberProgressBarPanel;
+
+import javax.swing.*;
 
 public class ErrorWindow extends JOptionPane {
 

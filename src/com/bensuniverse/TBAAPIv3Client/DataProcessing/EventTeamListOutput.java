@@ -11,24 +11,24 @@
 
 package com.bensuniverse.TBAAPIv3Client.DataProcessing;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 import com.bensuniverse.TBAAPIv3Client.Frames.ErrorWindow;
 import com.bensuniverse.TBAAPIv3Client.Frames.Panels.OutputLogPanel;
 import com.bensuniverse.TBAAPIv3Client.Frames.Panels.TeamNumberProgressBarPanel;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class EventTeamListOutput {
 	
 	public List<String> process(List<String> input_data) {
 		
-		List<Integer> team_list = new ArrayList<Integer>();        
-        List<String> final_output = new ArrayList<String>();
+		List<Integer> team_list = new ArrayList<>();
+        List<String> final_output = new ArrayList<>();
 		
 		TeamNumberProgressBarPanel.setProgressBarMaximum(input_data.size());
         System.out.println("Length of array: " + input_data.size());
-        OutputLogPanel.appendText("Length of array: " + Integer.toString(input_data.size()) + " lines\n");
+        OutputLogPanel.appendText("Length of array: " + input_data.size() + " lines\n");
 
         for (String str : input_data) {
 
@@ -57,10 +57,8 @@ public class EventTeamListOutput {
     			final_output.add(i.toString());
     			
     		}
-    		
-    		System.out.println();
-    		System.out.println();
-    		System.out.println("START");
+
+    		System.out.println("\nSTART");
     		
     		for (String str : final_output) {
     			

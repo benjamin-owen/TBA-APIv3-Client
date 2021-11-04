@@ -14,24 +14,18 @@
 
 package com.bensuniverse.TBAAPIv3Client.Frames.Panels;
 
-import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.File;
-
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JFileChooser;
-import javax.swing.JPanel;
-import javax.swing.border.TitledBorder;
-
 import com.bensuniverse.TBAAPIv3Client.Configuration;
 import com.bensuniverse.TBAAPIv3Client.FileIO.FileType;
 import com.bensuniverse.TBAAPIv3Client.Frames.MainWindow;
 
+import javax.swing.*;
+import javax.swing.border.TitledBorder;
+import java.awt.*;
+import java.io.File;
+
 public class FileSelectPanelRIGHT extends JPanel {
 
-	static JComboBox<FileType> file_select = new JComboBox<FileType>(FileType.values()); // dropdown menu populated from FileType enum
+	static JComboBox<FileType> file_select = new JComboBox<>(FileType.values()); // dropdown menu populated from FileType enum
 
 	private static final long serialVersionUID = 1L;
 
@@ -56,76 +50,73 @@ public class FileSelectPanelRIGHT extends JPanel {
 		else if (getFileTypeSelected() == FileType.XLSX) file_chooser.setSelectedFile(new File("tba_output.xlsx")); // set default file name if dropdown is XLSX
 		else if (getFileTypeSelected() == FileType.XLS) file_chooser.setSelectedFile(new File("tba_output.xls")); // set default file name if dropdown is XLS
 
-		file_select.addActionListener(new ActionListener() { // check for changes to dropdown
+		// check for changes to dropdown
+		file_select.addActionListener(e -> {
 
-			public void actionPerformed(ActionEvent e) {
+			String temp_path = FileSelectPanel.getFilePath();
+			for (int i = temp_path.length() - 1; i > 0; i--) {
 
-				String temp_path = FileSelectPanel.getFilePath();
-				for (int i = temp_path.length() - 1; i > 0; i--) {
+				if (temp_path.charAt(i) == '.') {
 
-					if (temp_path.charAt(i) == '.' && i > 0) {
-
-						temp_path = temp_path.substring(0, i); // get name of file sans extension
-						break;
-
-					}
-				}
-
-				// set file chooser value depending on dropdown value
-				if (getFileTypeSelected() == FileType.TXT) {
-
-					System.out.println("File type changed!");
-					FileSelectPanel.setFilePath(temp_path + ".txt");
-					file_chooser.setSelectedFile(new File("tba_output.txt"));
-					TeamNumberProgressBarPanel.setTeamNumberEnabled(false);
-
-				} else if (getFileTypeSelected() == FileType.CSV) {
-
-					System.out.println("File type changed!");
-					FileSelectPanel.setFilePath(temp_path + ".csv");
-					file_chooser.setSelectedFile(new File("tba_output.csv"));
-					TeamNumberProgressBarPanel.setTeamNumberEnabled(false);
-
-				} else if (getFileTypeSelected() == FileType.XLSX) {
-
-					System.out.println("File type changed!");
-					FileSelectPanel.setFilePath(temp_path + ".xlsx");
-					file_chooser.setSelectedFile(new File("tba_output.xlsx"));
-					TeamNumberProgressBarPanel.setTeamNumberEnabled(true);
-
-				} else if (getFileTypeSelected() == FileType.XLS) {
-
-					System.out.println("File type changed!");
-					FileSelectPanel.setFilePath(temp_path + ".xls");
-					file_chooser.setSelectedFile(new File("tba_output.xls"));
-					TeamNumberProgressBarPanel.setTeamNumberEnabled(true);
+					temp_path = temp_path.substring(0, i); // get name of file sans extension
+					break;
 
 				}
+			}
 
-				Configuration.writeValue("file_type", file_select.getSelectedItem().toString());
+			// set file chooser value depending on dropdown value
+			if (getFileTypeSelected() == FileType.TXT) {
+
+				System.out.println("File type changed!");
+				FileSelectPanel.setFilePath(temp_path + ".txt");
+				file_chooser.setSelectedFile(new File("tba_output.txt"));
+				TeamNumberProgressBarPanel.setTeamNumberEnabled(false);
+
+			} else if (getFileTypeSelected() == FileType.CSV) {
+
+				System.out.println("File type changed!");
+				FileSelectPanel.setFilePath(temp_path + ".csv");
+				file_chooser.setSelectedFile(new File("tba_output.csv"));
+				TeamNumberProgressBarPanel.setTeamNumberEnabled(false);
+
+			} else if (getFileTypeSelected() == FileType.XLSX) {
+
+				System.out.println("File type changed!");
+				FileSelectPanel.setFilePath(temp_path + ".xlsx");
+				file_chooser.setSelectedFile(new File("tba_output.xlsx"));
+				TeamNumberProgressBarPanel.setTeamNumberEnabled(true);
+
+			} else if (getFileTypeSelected() == FileType.XLS) {
+
+				System.out.println("File type changed!");
+				FileSelectPanel.setFilePath(temp_path + ".xls");
+				file_chooser.setSelectedFile(new File("tba_output.xls"));
+				TeamNumberProgressBarPanel.setTeamNumberEnabled(true);
 
 			}
+
+			Configuration.writeValue("file_type", file_select.getSelectedItem().toString());
+
 		});
 
-		browse_button.addActionListener(new ActionListener() { // if button is clicked
-			public void actionPerformed(ActionEvent e) {
+		// if button is clicked
+		browse_button.addActionListener(e -> {
 
-				if (file_chooser.showDialog(MainWindow.getFrames()[0], "Select") == JFileChooser.APPROVE_OPTION) { // if user selects a file
+			if (file_chooser.showDialog(MainWindow.getFrames()[0], "Select") == JFileChooser.APPROVE_OPTION) { // if user selects a file
 
-					String file_path = file_chooser.getSelectedFile().getAbsolutePath().toLowerCase();
+				String file_path = file_chooser.getSelectedFile().getAbsolutePath().toLowerCase();
 
-					if (file_path.contains(".txt")
-							|| file_path.contains(".csv")
-							|| file_path.contains(".xlsx")
-							|| file_path.contains(".xls")) { // if file extension contains correct extension
+				if (file_path.endsWith(".txt")
+						|| file_path.endsWith(".csv")
+						|| file_path.endsWith(".xlsx")
+						|| file_path.endsWith(".xls")) { // if file extension contains correct extension
 
-						FileSelectPanel.file_location_input.setText(file_chooser.getSelectedFile().getAbsolutePath()); // set text field = new file path
+					FileSelectPanel.file_location_input.setText(file_chooser.getSelectedFile().getAbsolutePath()); // set text field = new file path
 
-					} else { // incorrect file extension
+				} else { // incorrect file extension
 
-						FileSelectPanel.file_location_input.setText(file_chooser.getSelectedFile().getAbsolutePath() + "." + file_select.getSelectedItem().toString().toLowerCase()); // manually add correct extension
+					FileSelectPanel.file_location_input.setText(file_chooser.getSelectedFile().getAbsolutePath() + "." + file_select.getSelectedItem().toString().toLowerCase()); // manually add correct extension
 
-					}
 				}
 			}
 		});

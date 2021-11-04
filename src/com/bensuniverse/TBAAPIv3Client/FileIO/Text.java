@@ -12,6 +12,9 @@
 
 package com.bensuniverse.TBAAPIv3Client.FileIO;
 
+import com.bensuniverse.TBAAPIv3Client.DataProcessing.DataType;
+import com.bensuniverse.TBAAPIv3Client.Frames.ErrorWindow;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -19,11 +22,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
-
-import com.bensuniverse.TBAAPIv3Client.DataProcessing.DataType;
-import com.bensuniverse.TBAAPIv3Client.Frames.ErrorWindow;
-
-import javax.xml.crypto.Data;
 
 public class Text {
 
@@ -40,7 +38,7 @@ public class Text {
 		try {
 
 			File outputFile = new File(filePath);
-			if (outputFile.createNewFile()) { }
+			outputFile.createNewFile();
 
 			// add header for text output (txt, csv)
 			if (data_type == DataType.MATCH_SCHEDULE)

@@ -23,11 +23,7 @@ package com.bensuniverse.TBAAPIv3Client;
 
 import com.bensuniverse.TBAAPIv3Client.Frames.ErrorWindow;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 
 public class Configuration {
 
@@ -79,10 +75,9 @@ public class Configuration {
 
     private static boolean createInitialConfig(boolean create) {
 
-        try {
+        try (FileOutputStream file_out = new FileOutputStream(CONFIG)) {
 
-            BufferedReader file = new BufferedReader(new FileReader(CONFIG));
-            StringBuffer input_buffer = new StringBuffer();
+            StringBuilder input_buffer = new StringBuilder();
 
             // create initial values
             if (create) {
@@ -98,30 +93,26 @@ public class Configuration {
             	
             	// append values if they are not present
                 if (readValue("look_and_feel").equals("")) input_buffer.append("look_and_feel:DARK\n");
-                else input_buffer.append("look_and_feel:" + readValue("look_and_feel") + "\n");
+                else input_buffer.append("look_and_feel:").append(readValue("look_and_feel")).append("\n");
 
             	if (readValue("api_key").equals("")) input_buffer.append("api_key:NV\n");
-	            else input_buffer.append("api_key:" + readValue("api_key") + "\n");
+	            else input_buffer.append("api_key:").append(readValue("api_key")).append("\n");
             	
             	if (readValue("data_type").equals("")) input_buffer.append("data_type:NV\n");
-	            else input_buffer.append("data_type:" + readValue("data_type") + "\n");
+	            else input_buffer.append("data_type:").append(readValue("data_type")).append("\n");
 	            
 	            if (readValue("recent_file_location").equals("")) input_buffer.append("recent_file_location:NV\n");
-	            else input_buffer.append("recent_file_location:" + readValue("recent_file_location") + "\n");
+	            else input_buffer.append("recent_file_location:").append(readValue("recent_file_location")).append("\n");
 	            
 	            if (readValue("file_type").equals("")) input_buffer.append("file_type:NV\n");
-	            else input_buffer.append("file_type:" + readValue("file_type") + "\n");
+	            else input_buffer.append("file_type:").append(readValue("file_type")).append("\n");
 	            
 	            if (readValue("team_number").equals("")) input_buffer.append("team_number:NV\n");
-	            else input_buffer.append("team_number:" + readValue("team_number") + "\n");
+	            else input_buffer.append("team_number:").append(readValue("team_number")).append("\n");
 	            
             }
 
-            file.close();
-    
-            FileOutputStream file_out = new FileOutputStream(CONFIG);
             file_out.write(input_buffer.toString().getBytes());
-            file_out.close();
 
             return true;
     
@@ -140,7 +131,7 @@ public class Configuration {
         try {
 
             BufferedReader br = new BufferedReader(new FileReader(CONFIG));
-            String line = null;
+            String line;
             while ((line = br.readLine()) != null) {
 
                 if (line.contains(id)) { // line found with matching ID
@@ -164,10 +155,10 @@ public class Configuration {
 
     public static void writeValue(String id, String value) {
 
-        try {
+        try (BufferedReader file = new BufferedReader(new FileReader(CONFIG));
+             FileOutputStream file_out = new FileOutputStream(CONFIG)) {
 
-            BufferedReader file = new BufferedReader(new FileReader(CONFIG));
-            StringBuffer input_buffer = new StringBuffer();
+            StringBuilder input_buffer = new StringBuilder();
             String line;
     
             while ((line = file.readLine()) != null) {
@@ -182,11 +173,8 @@ public class Configuration {
                 input_buffer.append("\n");
                 
             }
-            file.close();
-    
-            FileOutputStream file_out = new FileOutputStream(CONFIG);
+
             file_out.write(input_buffer.toString().getBytes()); // write new buffer to file
-            file_out.close();
     
         } catch (IOException e) {
 

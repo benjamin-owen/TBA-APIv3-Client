@@ -8,20 +8,11 @@
 
 package com.bensuniverse.TBAAPIv3Client.Frames;
 
-import javax.swing.*;
-
 import com.bensuniverse.TBAAPIv3Client.Configuration;
-import com.bensuniverse.TBAAPIv3Client.Frames.Panels.APIKeyDataTypePanel;
-import com.bensuniverse.TBAAPIv3Client.Frames.Panels.FileSelectPanel;
-import com.bensuniverse.TBAAPIv3Client.Frames.Panels.FooterPanel;
-import com.bensuniverse.TBAAPIv3Client.Frames.Panels.HeaderPanel;
-import com.bensuniverse.TBAAPIv3Client.Frames.Panels.MatchIDPanel;
-import com.bensuniverse.TBAAPIv3Client.Frames.Panels.OutputLogPanel;
-import com.bensuniverse.TBAAPIv3Client.Frames.Panels.TeamNumberProgressBarPanel;
+import com.bensuniverse.TBAAPIv3Client.Frames.Panels.*;
 import com.bensuniverse.TBAAPIv3Client.Main;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import javax.swing.*;
 import java.awt.event.KeyEvent;
 
 public class MainWindow extends JFrame {
@@ -94,46 +85,30 @@ public class MainWindow extends JFrame {
         this.getRootPane().setDefaultButton(MatchIDPanel.getStartButton()); // set default button to start button (when hit enter key)
 
         // menu item File > Exit
-        file_exit.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-
-                System.exit(0);
-
-            }
-        });
+        file_exit.addActionListener(actionEvent -> System.exit(0));
 
         // menu item View > Change look and feel > System default
-        laf_system.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
+        laf_system.addActionListener(actionEvent -> {
 
-                Configuration.writeValue("look_and_feel", Theme.SYSTEM.getName());
-                Main.restart();
+            Configuration.writeValue("look_and_feel", Theme.SYSTEM.getName());
+            Main.restart();
 
-            }
         });
 
         // menu item View > Change look and feel > Light theme
-        laf_light.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
+        laf_light.addActionListener(actionEvent -> {
 
-                Configuration.writeValue("look_and_feel", Theme.LIGHT.getName());
-                Main.restart();
+            Configuration.writeValue("look_and_feel", Theme.LIGHT.getName());
+            Main.restart();
 
-            }
         });
 
         // menu item View > Change look and feel > Dark theme
-        laf_dark.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
+        laf_dark.addActionListener(actionEvent -> {
 
-                Configuration.writeValue("look_and_feel", Theme.DARK.getName());
-                Main.restart();
+            Configuration.writeValue("look_and_feel", Theme.DARK.getName());
+            Main.restart();
 
-            }
         });
 
         // wait 100 ms for window to load before MatchIDPanel requests focus

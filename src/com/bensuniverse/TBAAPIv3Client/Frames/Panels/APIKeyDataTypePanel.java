@@ -12,17 +12,14 @@
 
 package com.bensuniverse.TBAAPIv3Client.Frames.Panels;
 
-import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import com.bensuniverse.TBAAPIv3Client.Configuration;
+import com.bensuniverse.TBAAPIv3Client.DataProcessing.DataType;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
-
-import com.bensuniverse.TBAAPIv3Client.Configuration;
-import com.bensuniverse.TBAAPIv3Client.DataProcessing.DataType;
+import java.awt.*;
 
 public class APIKeyDataTypePanel extends JPanel {
 	
@@ -51,7 +48,7 @@ public class APIKeyDataTypePanel extends JPanel {
         	values_str[i] = values[i].getName();
         	
         }
-        data_type_select = new JComboBox<String>(values_str);
+        data_type_select = new JComboBox<>(values_str);
         
         TitledBorder data_type_border = new TitledBorder("Data to Export");
         data_type_select.setBorder(data_type_border);
@@ -64,26 +61,24 @@ public class APIKeyDataTypePanel extends JPanel {
         data_type_select.setSelectedItem((Configuration.readValue("data_type").equals("NV")) ? DataType.MATCH_SCHEDULE.getName()
         		: DataType.valueOf(Configuration.readValue("data_type")).getName()); // set data type dropdown = config value
         api_key.setText((Configuration.readValue("api_key").equals("NV")) ? "" : Configuration.readValue("api_key")); // set API key text field = config value
-        
-        data_type_select.addActionListener(new ActionListener() { // check for changes to dropdown
 
-			public void actionPerformed(ActionEvent e) {
-				
-				if (getDataType() == DataType.COMPLETE_TEAM_LIST) {
+        // check for changes to dropdown
+        data_type_select.addActionListener(e -> {
 
-					MatchIDPanel.setMatchIDEnabled(false);
-					MatchIDPanel.setMatchID("");
-					
-				} else {
-					
-					MatchIDPanel.setMatchIDEnabled(true);
-					
-				}
-				
-				Configuration.writeValue("data_type", getDataType().name());
+            if (getDataType() == DataType.COMPLETE_TEAM_LIST) {
 
-			}
-		});
+                MatchIDPanel.setMatchIDEnabled(false);
+                MatchIDPanel.setMatchID("");
+
+            } else {
+
+                MatchIDPanel.setMatchIDEnabled(true);
+
+            }
+
+            Configuration.writeValue("data_type", getDataType().name());
+
+        });
         
         DocumentListener documentListener = new DocumentListener() { // if text field changes, write new value to config
 
@@ -122,7 +117,7 @@ public class APIKeyDataTypePanel extends JPanel {
     	
     	for (int i = 0; i < values_str.length; i++) {
     		
-    		if (((String) data_type_select.getSelectedItem()).equals(values_str[i])) // return DataType that corresponds to selected item
+    		if (data_type_select.getSelectedItem().equals(values_str[i])) // return DataType that corresponds to selected item
     			return values[i];
     		
     	}

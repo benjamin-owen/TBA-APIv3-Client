@@ -11,12 +11,12 @@
 
 package com.bensuniverse.TBAAPIv3Client.DataProcessing;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.bensuniverse.TBAAPIv3Client.Frames.ErrorWindow;
 import com.bensuniverse.TBAAPIv3Client.Frames.Panels.OutputLogPanel;
 import com.bensuniverse.TBAAPIv3Client.Frames.Panels.TeamNumberProgressBarPanel;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MatchScheduleOutput {
 	
@@ -25,11 +25,11 @@ public class MatchScheduleOutput {
         String matchno, team1, team2, team3, team4, team5, team6;
         matchno = team1 = team2 = team3 = team4 = team5 = team6 = "NV";
         
-        List<String> output = new ArrayList<String>();
+        List<String> output = new ArrayList<>();
 		
         TeamNumberProgressBarPanel.setProgressBarMaximum(input_data.size());
         System.out.println("Length of array: " + input_data.size());
-        OutputLogPanel.appendText("Length of array: " + Integer.toString(input_data.size()) + " lines\n");
+        OutputLogPanel.appendText("Length of array: " + input_data.size() + " lines\n");
 
         for (String str : input_data) {
 
@@ -80,7 +80,7 @@ public class MatchScheduleOutput {
 
             }
             
-			List<String> final_output = new ArrayList<String>();
+			List<String> final_output = new ArrayList<>();
 			final_output.add(output.get(0));
 			
 			int current_match = 1;
@@ -94,7 +94,7 @@ public class MatchScheduleOutput {
 			    	// the following code looks for the next qualification match and adds the data to the final output, effectively sorting the array by match number
 			    	System.out.println("Raw input: " + output.get(i));
 			    	System.out.println("Current match found: " + Integer.parseInt(output.get(i).substring(0, output.get(i).indexOf(';'))));
-			    	System.out.println("Looking for: " + Integer.toString(Integer.parseInt(final_output.get(current_match - 1).substring(0, final_output.get(current_match - 1).indexOf(';'))) + 1));
+			    	System.out.println("Looking for: " + (Integer.parseInt(final_output.get(current_match - 1).substring(0, final_output.get(current_match - 1).indexOf(';'))) + 1));
 			    	
 			    	if (Integer.parseInt(output.get(i).substring(0, output.get(i).indexOf(';'))) == Integer.parseInt(final_output.get(current_match - 1).substring(0, final_output.get(current_match - 1).indexOf(';'))) + 1) {
 			    		
@@ -110,10 +110,8 @@ public class MatchScheduleOutput {
 			    System.out.println(str);
 
 			}
-			
-			System.out.println();
-			System.out.println();
-			System.out.println();
+
+			System.out.println("\n\n");
 			
 			for (String str : final_output) {
 

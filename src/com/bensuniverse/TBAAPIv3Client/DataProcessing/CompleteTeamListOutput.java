@@ -11,12 +11,12 @@
 
 package com.bensuniverse.TBAAPIv3Client.DataProcessing;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.bensuniverse.TBAAPIv3Client.Frames.ErrorWindow;
 import com.bensuniverse.TBAAPIv3Client.Frames.Panels.OutputLogPanel;
 import com.bensuniverse.TBAAPIv3Client.Frames.Panels.TeamNumberProgressBarPanel;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class CompleteTeamListOutput {
 	
@@ -25,11 +25,11 @@ public class CompleteTeamListOutput {
 		String city, country, name, nickname, state, number;
 		city = country = name = nickname = state = number = "NV";
         
-        List<String> output = new ArrayList<String>();
+        List<String> output = new ArrayList<>();
 		
         TeamNumberProgressBarPanel.setProgressBarMaximum(input_data.size());
         System.out.println("Length of array: " + input_data.size());
-        OutputLogPanel.appendText("Length of array: " + Integer.toString(input_data.size()) + " lines\n");
+        OutputLogPanel.appendText("Length of array: " + input_data.size() + " lines\n");
 
         for (String str : input_data) {
 
@@ -98,7 +98,7 @@ public class CompleteTeamListOutput {
                 TeamNumberProgressBarPanel.setProgressBarValue(i + 1);
 
             }
-            
+
 			List<String> final_output = output;
 
 			for (String str : output) {

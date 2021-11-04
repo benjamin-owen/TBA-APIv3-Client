@@ -16,11 +16,7 @@
 
 package com.bensuniverse.TBAAPIv3Client.FileIO;
 
-import org.apache.poi.ss.usermodel.CellStyle;
-import org.apache.poi.ss.usermodel.FillPatternType;
-import org.apache.poi.ss.usermodel.Font;
-import org.apache.poi.ss.usermodel.IndexedColors;
-import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.*;
 
 public enum ExcelCellStyle {
 
@@ -35,14 +31,14 @@ public enum ExcelCellStyle {
 	private final boolean bold;
 	private final short colorIndex;
 	
-	private ExcelCellStyle(boolean bold) {
+	ExcelCellStyle(boolean bold) {
 		
 		this.bold = bold;
 		this.colorIndex = -1;
 		
 	}
 	
-	private ExcelCellStyle(boolean bold, short colorIndex) {
+	ExcelCellStyle(boolean bold, short colorIndex) {
 		
 		this.bold = bold;
 		this.colorIndex = colorIndex;

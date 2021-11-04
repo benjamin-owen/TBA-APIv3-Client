@@ -13,17 +13,17 @@
 
 package com.bensuniverse.TBAAPIv3Client.FileIO;
 
-import java.util.List;
-
 import com.bensuniverse.TBAAPIv3Client.DataProcessing.DataType;
 import com.bensuniverse.TBAAPIv3Client.Frames.Panels.FileSelectPanelRIGHT;
 import com.bensuniverse.TBAAPIv3Client.Frames.Panels.TeamNumberProgressBarPanel;
+
+import java.util.List;
 
 public class FileTypeSelect {
 
 	public static boolean writeFile(String file_path, List<String> data, DataType data_type) {
 
-		FileType file_type = FileSelectPanelRIGHT.getFileTypeSelected(); // get file type from dropdown mneu in main window
+		FileType file_type = FileSelectPanelRIGHT.getFileTypeSelected(); // get file type from dropdown menu in main window
 
 		if (file_type == FileType.TXT || file_type == FileType.CSV) {
 

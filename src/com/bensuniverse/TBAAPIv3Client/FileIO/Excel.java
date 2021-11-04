@@ -15,10 +15,8 @@
 
 package com.bensuniverse.TBAAPIv3Client.FileIO;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.List;
-
+import com.bensuniverse.TBAAPIv3Client.DataProcessing.DataType;
+import com.bensuniverse.TBAAPIv3Client.Frames.ErrorWindow;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -26,8 +24,9 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import com.bensuniverse.TBAAPIv3Client.Frames.ErrorWindow;
-import com.bensuniverse.TBAAPIv3Client.DataProcessing.DataType;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.List;
 
 public class Excel {
 
@@ -172,11 +171,9 @@ public class Excel {
 
 		// write Excel file
 
-		try {
+		try(FileOutputStream fos = new FileOutputStream(filePath)) {
 
-			FileOutputStream fos = new FileOutputStream(filePath);
 			workbook.write(fos);
-			fos.close();
 
 			System.out.println("Excel file written");
 

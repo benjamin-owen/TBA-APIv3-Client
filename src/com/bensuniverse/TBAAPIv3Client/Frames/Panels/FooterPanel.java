@@ -10,9 +10,7 @@ package com.bensuniverse.TBAAPIv3Client.Frames.Panels;
 
 import com.bensuniverse.TBAAPIv3Client.Main;
 
-import javax.swing.BorderFactory;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+import javax.swing.*;
 
 public class FooterPanel extends JPanel {
 

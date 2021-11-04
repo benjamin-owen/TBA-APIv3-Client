@@ -8,10 +8,10 @@
 
 package com.bensuniverse.TBAAPIv3Client.Frames;
 
-import javax.swing.*;
-
 import com.bensuniverse.TBAAPIv3Client.Frames.Panels.MatchIDPanel;
 import com.bensuniverse.TBAAPIv3Client.Frames.Panels.TeamNumberProgressBarPanel;
+
+import javax.swing.*;
 
 public class CompletedWindow extends JOptionPane {
 

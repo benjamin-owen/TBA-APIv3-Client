@@ -14,20 +14,17 @@
 
 package com.bensuniverse.TBAAPIv3Client.Frames.Panels;
 
-import java.awt.GridLayout;
-import java.io.File;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import com.bensuniverse.TBAAPIv3Client.Configuration;
+import com.bensuniverse.TBAAPIv3Client.FileIO.FileType;
 
-import javax.swing.BorderFactory;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
-
-import com.bensuniverse.TBAAPIv3Client.Configuration;
-import com.bensuniverse.TBAAPIv3Client.FileIO.FileType;
+import java.awt.*;
+import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class FileSelectPanel extends JPanel {
 
@@ -84,29 +81,29 @@ public class FileSelectPanel extends JPanel {
             	if (value.length() >= 5) {
 	            	
 	            	Configuration.writeValue(id, value);
-	            	
-	            	if (value.substring(value.length() - 4).equalsIgnoreCase(".txt")) {
+
+	            	if (value.toLowerCase().endsWith(".txt")) {
 	            		
 	            		FileSelectPanelRIGHT.setFileTypeSelected(FileType.TXT); // set dropdown to TXT if path ends in ".txt"
 	            		TeamNumberProgressBarPanel.setTeamNumberEnabled(false);
 	            		
 	            	}
 
-                    if (value.substring(value.length() - 4).equalsIgnoreCase(".csv")) {
+                    if (value.toLowerCase().endsWith(".csv")) {
 
                         FileSelectPanelRIGHT.setFileTypeSelected(FileType.CSV); // set dropdown to CSV if path ends in ".csv"
                         TeamNumberProgressBarPanel.setTeamNumberEnabled(false);
 
                     }
 	            	
-	            	if (value.substring(value.length() - 5).equalsIgnoreCase(".xlsx")) {
+	            	if (value.toLowerCase().endsWith(".xlsx")) {
 	            		
 	            		FileSelectPanelRIGHT.setFileTypeSelected(FileType.XLSX); // set dropdown to XLSX if path ends in ".xlsx"
 	            		TeamNumberProgressBarPanel.setTeamNumberEnabled(true);
 	            		
 	            	}
 	            	
-	            	if (value.substring(value.length() - 4).equalsIgnoreCase(".xls")) {
+	            	if (value.toLowerCase().endsWith(".xls")) {
 	            		
 	            		FileSelectPanelRIGHT.setFileTypeSelected(FileType.XLS); // set dropdown to XLS if path ends in ".xls"
 	            		TeamNumberProgressBarPanel.setTeamNumberEnabled(true);

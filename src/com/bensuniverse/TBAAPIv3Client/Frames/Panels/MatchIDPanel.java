@@ -24,17 +24,14 @@
 
 package com.bensuniverse.TBAAPIv3Client.Frames.Panels;
 
-import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.Arrays;
-
-import javax.swing.*;
-import javax.swing.border.TitledBorder;
-
 import com.bensuniverse.TBAAPIv3Client.DataProcessing.DataType;
 import com.bensuniverse.TBAAPIv3Client.DataProcessing.Processing;
 import com.bensuniverse.TBAAPIv3Client.Frames.ErrorWindow;
+
+import javax.swing.*;
+import javax.swing.border.TitledBorder;
+import java.awt.*;
+import java.util.Arrays;
 
 public class MatchIDPanel extends JPanel {
 
@@ -54,44 +51,43 @@ public class MatchIDPanel extends JPanel {
         match_ID_input.setBorder(border);
 
         start_button = new JButton("Start");
-        start_button.addActionListener(new ActionListener() { // check if start button was clicked
-            public void actionPerformed(ActionEvent e) {
-            	
-            	setStartButtonEnabled(false); // disable start button
+        // check if start button was clicked
+        start_button.addActionListener(e -> {
 
-                String MATCH_ID = match_ID_input.getText();
-                OutputLogPanel.clear(); // clear output panel
+            setStartButtonEnabled(false); // disable start button
 
-                if (!MATCH_ID.equals("") || APIKeyDataTypePanel.getDataType() == DataType.COMPLETE_TEAM_LIST) { // if match ID contains a value
+            String MATCH_ID = match_ID_input.getText();
+            OutputLogPanel.clear(); // clear output panel
 
-                    if (!invalidCharacters(MATCH_ID)) { // if the match ID doesn't contain invalid characters
-                    	
-                    	String temp_path = FileSelectPanel.getFilePath();
-                    	
-                    	if (temp_path.substring(temp_path.length() - 4).equalsIgnoreCase(".txt")
-                                || temp_path.substring(temp_path.length() - 4).equalsIgnoreCase(".csv")
-                    			|| temp_path.substring(temp_path.length() - 5).equalsIgnoreCase(".xlsx")
-                    			|| temp_path.substring(temp_path.length() - 4).equalsIgnoreCase(".xls")) { // if file path contains correct extension
+            if (!MATCH_ID.equals("") || APIKeyDataTypePanel.getDataType() == DataType.COMPLETE_TEAM_LIST) { // if match ID contains a value
 
-                    		new Processing(FileSelectPanel.getFilePath(), MATCH_ID, APIKeyDataTypePanel.getAPIKey(), APIKeyDataTypePanel.getDataType()).process(); // process data
-                        
-                    	} else {
-                    		
-                    		new ErrorWindow("Invalid output file extension!");
-                    		
-                    	}
+                if (!invalidCharacters(MATCH_ID)) { // if the match ID doesn't contain invalid characters
+
+                    String temp_path = FileSelectPanel.getFilePath();
+
+                    if (temp_path.toLowerCase().endsWith(".txt")
+                            || temp_path.toLowerCase().endsWith(".csv")
+                            || temp_path.toLowerCase().endsWith(".xlsx")
+                            || temp_path.toLowerCase().endsWith(".xls")) { // if file path contains correct extension
+
+                        new Processing(FileSelectPanel.getFilePath(), MATCH_ID, APIKeyDataTypePanel.getAPIKey(), APIKeyDataTypePanel.getDataType()).process(); // process data
 
                     } else {
 
-                        new ErrorWindow("Invalid Match ID!");
+                        new ErrorWindow("Invalid output file extension!");
 
                     }
-                    
+
                 } else {
 
-                    new ErrorWindow("Match ID must contain a value!");
+                    new ErrorWindow("Invalid Match ID!");
 
                 }
+
+            } else {
+
+                new ErrorWindow("Match ID must contain a value!");
+
             }
         });
         
