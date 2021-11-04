@@ -14,7 +14,6 @@ import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-
 public class FooterPanel extends JPanel {
 
     private static final long serialVersionUID = 1L;
