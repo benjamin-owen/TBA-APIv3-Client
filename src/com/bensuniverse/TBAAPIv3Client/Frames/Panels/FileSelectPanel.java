@@ -22,15 +22,12 @@ import java.nio.file.Paths;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import javax.swing.UIManager;
 import javax.swing.border.TitledBorder;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
 import com.bensuniverse.TBAAPIv3Client.Configuration;
 import com.bensuniverse.TBAAPIv3Client.FileIO.FileType;
-import com.bensuniverse.TBAAPIv3Client.Frames.Theme;
-import com.bensuniverse.TBAAPIv3Client.Main;
 
 public class FileSelectPanel extends JPanel {
 

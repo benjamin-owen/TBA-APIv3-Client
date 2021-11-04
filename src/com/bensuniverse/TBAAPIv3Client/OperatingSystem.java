@@ -12,8 +12,6 @@
 
 package com.bensuniverse.TBAAPIv3Client;
 
-import java.util.Locale;
-
 public enum OperatingSystem {
 
 	WINDOWS("Windows"),

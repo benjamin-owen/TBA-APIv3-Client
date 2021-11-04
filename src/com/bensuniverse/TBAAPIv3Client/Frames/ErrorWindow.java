@@ -10,12 +10,10 @@ package com.bensuniverse.TBAAPIv3Client.Frames;
 
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import javax.swing.UIManager;
 
 import com.bensuniverse.TBAAPIv3Client.Frames.Panels.MatchIDPanel;
 import com.bensuniverse.TBAAPIv3Client.Frames.Panels.OutputLogPanel;
 import com.bensuniverse.TBAAPIv3Client.Frames.Panels.TeamNumberProgressBarPanel;
-import com.bensuniverse.TBAAPIv3Client.Main;
 
 public class ErrorWindow extends JOptionPane {
 

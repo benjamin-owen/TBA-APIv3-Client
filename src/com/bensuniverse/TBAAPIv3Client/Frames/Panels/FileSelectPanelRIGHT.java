@@ -18,20 +18,16 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-import java.util.Locale;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 import javax.swing.JPanel;
-import javax.swing.UIManager;
 import javax.swing.border.TitledBorder;
 
 import com.bensuniverse.TBAAPIv3Client.Configuration;
 import com.bensuniverse.TBAAPIv3Client.FileIO.FileType;
 import com.bensuniverse.TBAAPIv3Client.Frames.MainWindow;
-import com.bensuniverse.TBAAPIv3Client.Frames.Theme;
-import com.bensuniverse.TBAAPIv3Client.Main;
 
 public class FileSelectPanelRIGHT extends JPanel {
 

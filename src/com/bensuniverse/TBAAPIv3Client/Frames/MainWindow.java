@@ -19,10 +19,7 @@ import com.bensuniverse.TBAAPIv3Client.Frames.Panels.MatchIDPanel;
 import com.bensuniverse.TBAAPIv3Client.Frames.Panels.OutputLogPanel;
 import com.bensuniverse.TBAAPIv3Client.Frames.Panels.TeamNumberProgressBarPanel;
 import com.bensuniverse.TBAAPIv3Client.Main;
-import com.formdev.flatlaf.FlatDarkLaf;
-import com.formdev.flatlaf.FlatLightLaf;
 
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;

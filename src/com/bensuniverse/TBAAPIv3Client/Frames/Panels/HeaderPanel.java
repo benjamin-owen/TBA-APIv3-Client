@@ -8,14 +8,10 @@
 
 package com.bensuniverse.TBAAPIv3Client.Frames.Panels;
 
-import com.bensuniverse.TBAAPIv3Client.Frames.Theme;
-import com.bensuniverse.TBAAPIv3Client.Main;
-
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
-import javax.swing.UIManager;
 
 public class HeaderPanel extends JPanel {
 

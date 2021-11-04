@@ -12,7 +12,6 @@ import javax.swing.*;
 
 import com.bensuniverse.TBAAPIv3Client.Frames.Panels.MatchIDPanel;
 import com.bensuniverse.TBAAPIv3Client.Frames.Panels.TeamNumberProgressBarPanel;
-import com.bensuniverse.TBAAPIv3Client.Main;
 
 public class CompletedWindow extends JOptionPane {
 
