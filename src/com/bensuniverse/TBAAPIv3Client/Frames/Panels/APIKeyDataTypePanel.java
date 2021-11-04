@@ -23,8 +23,6 @@ import javax.swing.event.DocumentListener;
 
 import com.bensuniverse.TBAAPIv3Client.Configuration;
 import com.bensuniverse.TBAAPIv3Client.DataProcessing.DataType;
-import com.bensuniverse.TBAAPIv3Client.Frames.Theme;
-import com.bensuniverse.TBAAPIv3Client.Main;
 
 public class APIKeyDataTypePanel extends JPanel {
 	

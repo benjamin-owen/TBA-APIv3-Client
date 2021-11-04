@@ -35,8 +35,6 @@ import javax.swing.border.TitledBorder;
 import com.bensuniverse.TBAAPIv3Client.DataProcessing.DataType;
 import com.bensuniverse.TBAAPIv3Client.DataProcessing.Processing;
 import com.bensuniverse.TBAAPIv3Client.Frames.ErrorWindow;
-import com.bensuniverse.TBAAPIv3Client.Frames.Theme;
-import com.bensuniverse.TBAAPIv3Client.Main;
 
 public class MatchIDPanel extends JPanel {
 
