@@ -3,8 +3,8 @@
 **v2.4**
 - Add CSV output support
 - Add header to TXT and CSV output files
-- Update FlatLaf to 1.5
 - Code cleanup
+- Convert to Maven project
 
 **v2.3**
 - Add MacOS support
